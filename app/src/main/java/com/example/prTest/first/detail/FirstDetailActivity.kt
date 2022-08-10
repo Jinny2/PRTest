@@ -2,6 +2,7 @@ package com.example.prTest.first.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.prTest.R
 
 class FirstDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
