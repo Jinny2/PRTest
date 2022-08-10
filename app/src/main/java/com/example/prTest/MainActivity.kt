@@ -1,8 +1,8 @@
 package com.example.prTest
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.prTest.databinding.ActivityMainBinding
 
@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpEvent() {
         mBinding.btn1.setOnClickListener {
+            startActivity(Intent(this, FirstActivity::class.java))
         }
         mBinding.btn2.setOnClickListener {
             mIntent = Intent(this, SecondActivity::class.java)
