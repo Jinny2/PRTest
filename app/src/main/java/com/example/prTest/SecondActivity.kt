@@ -3,7 +3,6 @@ package com.example.prTest
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.prTest.databinding.ActivitySecondBinding
@@ -27,7 +26,9 @@ class SecondActivity : AppCompatActivity() {
         mBinding.secondRecyclerView.layoutManager = LinearLayoutManager(this)
         mAdapter.setItemClickListener(object : SecondAdapter.ItemClickListener {
             override fun onItemClick(position: Int) {
-                Toast.makeText(this@SecondActivity, mList[position]+"이 클릭 되었습니다.", Toast.LENGTH_SHORT).show()
+                val myIntent = Intent(this@SecondActivity, SecondItemDetailActivity::class.java)
+                myIntent.putExtra("numData", mList[position])
+                startActivity(myIntent)
             }
         })
     }
