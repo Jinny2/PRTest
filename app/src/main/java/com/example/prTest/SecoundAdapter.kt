@@ -8,7 +8,15 @@ import androidx.recyclerview.widget.RecyclerView
 
 class SecondAdapter(val mList: ArrayList<String>) :
     RecyclerView.Adapter<SecondAdapter.ItemViewHolder>() {
+    lateinit var mItemClickListener: ItemClickListener
+
     inner class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        init {
+            itemView.setOnClickListener {
+                mItemClickListener.onItemClick(adapterPosition)
+            }
+        }
+
         private val numTxt = view.findViewById<TextView>(R.id.numTxt)
         fun bind(item: String) {
             numTxt.text = item
@@ -27,4 +35,13 @@ class SecondAdapter(val mList: ArrayList<String>) :
     override fun getItemCount(): Int {
         return mList.size
     }
+
+    interface ItemClickListener {
+        fun onItemClick(position: Int)
+    }
+
+    fun setItemClickListener(itemClickListener: ItemClickListener) {
+        mItemClickListener = itemClickListener
+    }
+
 }
