@@ -29,7 +29,6 @@
             android:text="숫자"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/endTxt"
             app:layout_constraintStart_toEndOf="@+id/startTxt"
             app:layout_constraintTop_toTopOf="parent" />

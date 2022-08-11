@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-//주석
 class SecondAdapter(val mList: ArrayList<String>) :
     RecyclerView.Adapter<SecondAdapter.ItemViewHolder>() {
     lateinit var mItemClickListener: ItemClickListener
