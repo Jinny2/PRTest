@@ -14,11 +14,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        setUpEvents()
+        setUpEventsss()
     }
 
-    private fun setUpEvents() {
+    private fun setUpEventsss() {
         mBinding.btn1.setOnClickListener {
+            val test = "test" +
+                    "test"
         }
         mBinding.btn2.setOnClickListener {
             mIntent = Intent(this, SecondActivity::class.java)
