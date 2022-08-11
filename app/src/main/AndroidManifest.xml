@@ -18,6 +18,7 @@
             android:exported="false" />
         <activity
             android:name=".first.FirstActivity"
+            android:name=".SecondItemDetailActivity"
             android:exported="false" />
         <activity
             android:name=".SecondActivity"
