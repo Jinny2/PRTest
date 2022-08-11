@@ -14,6 +14,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        val test = "test"
+        val test1 = 3
         setUpEvent()
     }
 
@@ -26,3 +28,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+// 테스트용 주석 
