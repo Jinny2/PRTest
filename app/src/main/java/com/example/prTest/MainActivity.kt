@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpEvent() {
         mBinding.btn1.setOnClickListener {
-            
             startActivity(Intent(this, FirstActivity::class.java))
         }
         mBinding.btn2.setOnClickListener {
