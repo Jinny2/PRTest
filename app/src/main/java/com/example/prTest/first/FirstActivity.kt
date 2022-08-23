@@ -20,7 +20,6 @@ class FirstActivity : AppCompatActivity() {
         initAdapter()
     }
 
-    // 테스트 주석 
     private fun initAdapter() {
         binding.rvView.apply {
             layoutManager = LinearLayoutManager(this@FirstActivity, LinearLayoutManager.VERTICAL, false)
