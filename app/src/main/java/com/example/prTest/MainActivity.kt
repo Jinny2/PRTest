@@ -13,10 +13,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        setUpEvent()
+        setUpEvents()
     }
 
-    private fun setUpEvent() {
+    private fun setUpEvents() {
         mBinding.btn1.setOnClickListener {
         }
         mBinding.btn2.setOnClickListener {
@@ -25,3 +25,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+// 테스트용 주석 
