@@ -1,8 +1,9 @@
-package com.example.prTest
+package com.example.prTest.SecondUI
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import com.example.prTest.R
 import com.example.prTest.databinding.ActivitySecondItemDetailBinding
 
 class SecondItemDetailActivity : AppCompatActivity() {

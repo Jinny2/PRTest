@@ -4,11 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import com.example.prTest.SecondUI.SecondActivity
 import com.example.prTest.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    // 테스트용 주석 달기 !!
-    // 테스트용 주석 2개 달기 !!
     private lateinit var mBinding: ActivityMainBinding
     private lateinit var mIntent: Intent
     override fun onCreate(savedInstanceState: Bundle?) {
