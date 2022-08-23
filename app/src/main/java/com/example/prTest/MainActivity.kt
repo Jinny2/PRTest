@@ -1,14 +1,13 @@
 package com.example.prTest
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.prTest.databinding.ActivityMainBinding
+import com.example.prTest.first.FirstActivity
 
 class MainActivity : AppCompatActivity() {
-    // 테스트용 주석 달기 !!
-    // 테스트용 주석 2개 달기 !!
     private lateinit var mBinding: ActivityMainBinding
     private lateinit var mIntent: Intent
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,4 +25,3 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-// 테스트용 주석 
