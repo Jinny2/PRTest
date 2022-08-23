@@ -1,10 +1,12 @@
-package com.example.prTest
+package com.example.prTest.SecondUI
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.prTest.R
+import com.example.prTest.SecondAdapter
 import com.example.prTest.databinding.ActivitySecondBinding
 
 class SecondActivity : AppCompatActivity() {
@@ -12,15 +14,20 @@ class SecondActivity : AppCompatActivity() {
     private lateinit var mAdapter: SecondAdapter
     private var mList: ArrayList<String> = arrayListOf()
 
-    //불필요한 주석, 주석 삭제 요청해주시면 수정 할 수 있게 달아논 주석입니다.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_second)
-        setUpValue()
+        setData()
+        initAdapter()
     }
 
-    private fun setUpValue() {
-        setData()
+    private fun setData() {
+        for (index in 1..100) {
+            mList.add(index.toString())
+        }
+    }
+
+    private fun initAdapter(){
         mAdapter = SecondAdapter(mList)
         mBinding.secondRecyclerView.adapter = mAdapter
         mBinding.secondRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -31,11 +38,5 @@ class SecondActivity : AppCompatActivity() {
                 startActivity(myIntent)
             }
         })
-    }
-
-    private fun setData() {
-        for (index in 1..100) {
-            mList.add(index.toString())
-        }
     }
 }

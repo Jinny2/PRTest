@@ -24,7 +24,7 @@ class SecondAdapter(val mList: ArrayList<String>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val row = LayoutInflater.from(parent.context).inflate(R.layout.second_item, parent, false)
+        val row = LayoutInflater.from(parent.context).inflate(R.layout.item_second, parent, false)
         return ItemViewHolder(row)
     }
 
