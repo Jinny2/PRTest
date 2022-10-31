@@ -19,4 +19,7 @@ class SecondActivity : AppCompatActivity() {
     private fun setUpEvent(){
 
     }
+    private fun test(){
+        
+    }
 }
