@@ -9,3 +9,20 @@ class ComposeTestActivity : AppCompatActivity() {
         }
     }
 }
+@Composable
+fun TestApp(content: @Composable () -> Unit) {
+    JatpackComoseTheme {
+        Surface(color = Color.Yellow) {
+            content()
+        }
+    }
+}
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    JatpackComoseTheme {
+        TestApp {
+            TestScreenContents()
+        }
+    }
+}
