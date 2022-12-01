@@ -15,7 +15,7 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "PR_test"
-include ':app'
-include ':data'
-include ':domain'
-include ':presentation'
+include(":presentation")
+include(":app")
+include(":data")
+include(":domain")
