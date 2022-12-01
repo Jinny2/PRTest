@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.prTest">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name="com.example.prTest.app.MainApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -12,14 +14,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
         <activity
-            android:name=".SecondActivity"
+            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:host="oauth"
+                    android:scheme="kakao9430be375744b4c5801e93b81ebe12f0" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.example.presentation.view.SecondActivity"
             android:exported="false"
             android:label="@string/title_activity_second"
             android:theme="@style/Theme.MyApplication.NoActionBar" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.presentation.view.ComposeTestActivity"
+            android:exported="true"
+            android:label="@string/title_activity_three"
+            android:theme="@style/Theme.MyApplication.NoActionBar" />
+        <activity
+            android:name="com.example.presentation.view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -4,25 +4,30 @@ plugins {
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
     id("org.jlleitschuh.gradle.ktlint")
+    id("io.gitlab.arturbosch.detekt")
 }
 
 android {
-    namespace = "com.example.app"
-    compileSdk = AppConfig.compileSdk
+    compileSdk = Dependency.AppConfig.compileSdk
 
     defaultConfig {
-        applicationId "com.example.prTest"
-        minSdk = AppConfig.minSdk
-        targetSdk = AppConfig.targetSdk
-        versionCode = AppConfig.versionCode
-        versionName = AppConfig.versionName
+        applicationId = "com.example.prTest"
+        minSdk = Dependency.AppConfig.minSdk
+        targetSdk = Dependency.AppConfig.targetSdk
+        versionCode = Dependency.AppConfig.versionCode
+        versionName = Dependency.AppConfig.versionName
+        vectorDrawables.useSupportLibrary = true
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 
@@ -39,6 +44,11 @@ android {
         viewBinding = true
         dataBinding = true
     }
+
+    ktlint {
+        disabledRules.set(setOf("final-newline"))
+    }
+    namespace = "com.example.prTest"
 }
 
 dependencies {
@@ -47,29 +57,29 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":presentation"))
 
-    // testUnit
-    testImplementation(Libraries.Test.JUNIT)
-    androidTestImplementation(Libraries.AndroidTest.TEST)
-    androidTestImplementation(Libraries.AndroidTest.TEST_CORE)
-
-    // Coroutines
-    implementation(Libraries.COROUTINES.KOTLIN_COROUTINES)
-
-    // Kakao SDK
-    implementation(Libraries.KAKAO.KAKAO_SDK)
-
-    // Hilt
-    implementation(Libraries.HLIT.HLIT)
-    kapt(Libraries.HLIT.HLIT_COMPILER)
-
     // KTX
-    implementation implementation(Libraries.KTX.CORE)
-    implementation implementation(Libraries.KTX.NAVIGATION_FRGMENT)
-    implementation implementation(Libraries.KTX.NAVIGATION_UI)
+    implementation(Dependency.Libraries.KTX.CORE)
+    implementation(Dependency.Libraries.KTX.NAVIGATION_FRGMENT)
+    implementation(Dependency.Libraries.KTX.NAVIGATION_UI)
 
     // AndroidX
-    implementation implementation(Libraries.AndroidX.APP_COMPAT)
-    implementation implementation(Libraries.AndroidX.MATERIAL)
-    implementation implementation(Libraries.AndroidX.CONSTRAINT_LAYOUT)
-}
+    implementation(Dependency.Libraries.AndroidX.APP_COMPAT)
+    implementation(Dependency.Libraries.AndroidX.MATERIAL)
+    implementation(Dependency.Libraries.AndroidX.CONSTRAINT_LAYOUT)
 
+    // testUnit
+    testImplementation(Dependency.Libraries.Test.JUNIT)
+    androidTestImplementation(Dependency.Libraries.AndroidTest.TEST)
+    androidTestImplementation(Dependency.Libraries.AndroidTest.TEST_CORE)
+
+    // Coroutines
+    implementation(Dependency.Libraries.COROUTINES.COROUTINES_KOTLINX)
+    implementation(Dependency.Libraries.COROUTINES.COROUTINES_VIEWMODEL)
+
+    // Kakao SDK
+    implementation(Dependency.Libraries.KAKAO.KAKAO_SDK)
+
+    // Hilt
+    implementation(Dependency.Libraries.HLIT.HLIT)
+    kapt(Dependency.Libraries.HLIT.HLIT_COMPILER)
+}
