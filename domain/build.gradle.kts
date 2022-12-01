@@ -4,17 +4,16 @@ plugins {
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
     id("org.jlleitschuh.gradle.ktlint")
+    id("io.gitlab.arturbosch.detekt")
 }
 
 android {
-    namespace = "com.example.domain"
-    compileSdk = AppConfig.compileSdk
+
+    compileSdk = Dependency.AppConfig.compileSdk
 
     defaultConfig {
-        minSdk = AppConfig.minSdk
-        targetSdk = AppConfig.targetSdk
-        versionCode = AppConfig.versionCode
-        versionName = AppConfig.versionName
+        minSdk = Dependency.AppConfig.minSdk
+        targetSdk = Dependency.AppConfig.targetSdk
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -33,23 +32,28 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
-}
 
+    ktlint {
+        disabledRules.set(setOf("final-newline"))
+    }
+    namespace = "com.example.domain"
+}
 
 dependencies {
 
-    // testUnit
-    testImplementation(Libraries.Test.JUNIT)
-    androidTestImplementation(Libraries.AndroidTest.TEST)
-    androidTestImplementation(Libraries.AndroidTest.TEST_CORE)
-
     // Coroutines
-    implementation(Libraries.COROUTINES.KOTLIN_COROUTINES)
+    implementation(Dependency.Libraries.COROUTINES.COROUTINES_KOTLINX)
+    implementation(Dependency.Libraries.COROUTINES.COROUTINES_VIEWMODEL)
 
     // Kakao SDK
-    implementation(Libraries.KAKAO.KAKAO_SDK)
+    implementation(Dependency.Libraries.KAKAO.KAKAO_SDK)
 
     // Hilt
-    implementation(Libraries.HLIT.HLIT)
-    kapt(Libraries.HLIT.HLIT_COMPILER)
+    implementation(Dependency.Libraries.HLIT.HLIT)
+    kapt(Dependency.Libraries.HLIT.HLIT_COMPILER)
+
+    // testUnit
+    testImplementation(Dependency.Libraries.Test.JUNIT)
+    androidTestImplementation(Dependency.Libraries.AndroidTest.TEST)
+    androidTestImplementation(Dependency.Libraries.AndroidTest.TEST_CORE)
 }
