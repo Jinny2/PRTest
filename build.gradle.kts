@@ -12,4 +12,10 @@ tasks {
     register("clean", Delete::class) {
         delete(rootProject.buildDir)
     }
+
+    register("installGitHook", Copy::class) {
+        from(file("$rootDir/.githooks"))
+        into(file("$rootDir/.git/hooks"))
+        fileMode = 0b0111101101 // -rwxr-xr-x
+    }
 }

@@ -36,7 +36,7 @@ class MainApplication : Application() {
 
                 Log.d("debugLog", "hashKey -> $hc")
             }
-        } catch ( e: Exception) {
+        } catch (e: Exception) {
             Log.d("debugLog", " exception -> $e")
         }
     }

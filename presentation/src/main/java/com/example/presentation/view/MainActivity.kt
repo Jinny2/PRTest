@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         kakaoProvider = KakaoProvider(this)
         setUpEvent()
+        test()
     }
 
     private fun setUpEvent() {
@@ -46,5 +47,10 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun test() {
+        mIntent = Intent(this, SecondActivity::class.java)
+        startActivity(mIntent)
     }
 }
