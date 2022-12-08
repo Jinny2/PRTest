@@ -44,6 +44,11 @@ object Dependency {
             const val COMPOSE_MATERIAL = "androidx.compose.material:material:1.3.1"
         }
 
+        object DATASTORE { // DATASTORE
+            const val DATASTORE_PREFERENCES = "androidx.datastore:datastore-preferences:1.0.0"
+            const val DATASTORE_PREFERENCES_CORE = "androidx.datastore:datastore-preferences-core:1.0.0"
+        }
+
         object Test { // Test
             const val JUNIT = "junit:junit:4.13.2"
         }
