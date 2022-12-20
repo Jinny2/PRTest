@@ -54,6 +54,7 @@ android {
 dependencies {
     implementation(project(":data"))
     implementation(project(":domain"))
+    implementation(project(mapOf("path" to ":core")))
 
     // testUnit
     testImplementation(Dependency.Libraries.Test.JUNIT)
@@ -75,6 +76,8 @@ dependencies {
     implementation(Dependency.Libraries.KTX.CORE)
     implementation(Dependency.Libraries.KTX.NAVIGATION_FRGMENT)
     implementation(Dependency.Libraries.KTX.NAVIGATION_UI)
+    implementation(Dependency.Libraries.KTX.LIVE_DATA)
+
 
     // AndroidX
     implementation(Dependency.Libraries.AndroidX.APP_COMPAT)
@@ -87,4 +90,8 @@ dependencies {
     implementation(Dependency.Libraries.COMPOSE.COMPOSE_UI)
     implementation(Dependency.Libraries.COMPOSE.COMPOSE_ACTIVITY)
     implementation(Dependency.Libraries.COMPOSE.COMPOSE_MATERIAL)
+
+    // DataStore
+    implementation(Dependency.Libraries.DATASTORE.DATASTORE_PREFERENCES)
+    implementation(Dependency.Libraries.DATASTORE.DATASTORE_PREFERENCES_CORE)
 }

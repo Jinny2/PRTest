@@ -57,4 +57,8 @@ dependencies {
     // Hilt
     implementation(Dependency.Libraries.HLIT.HLIT)
     kapt(Dependency.Libraries.HLIT.HLIT_COMPILER)
+
+    // DataStore
+    implementation(Dependency.Libraries.DATASTORE.DATASTORE_PREFERENCES)
+    implementation(Dependency.Libraries.DATASTORE.DATASTORE_PREFERENCES_CORE)
 }

@@ -1,44 +1,62 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
+    id("org.jlleitschuh.gradle.ktlint")
+    id("io.gitlab.arturbosch.detekt")
 }
 
 android {
-    namespace = "com.example.core"
-    compileSdk = 32
+    compileSdk = Dependency.AppConfig.compileSdk
 
     defaultConfig {
-        minSdk = 21
-        targetSdk = 32
-
+        minSdk = Dependency.AppConfig.minSdk
+        targetSdk = Dependency.AppConfig.targetSdk
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
-        release {
+        getByName("release") {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
+
+    ktlint {
+        disabledRules.set(setOf("final-newline"))
+    }
+
+    namespace = "com.example.core"
 }
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.5.1")
-    implementation("com.google.android.material:material:1.7.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.4")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.0")
+    // testUnit
+    testImplementation(Dependency.Libraries.Test.JUNIT)
+    androidTestImplementation(Dependency.Libraries.AndroidTest.TEST)
+    androidTestImplementation(Dependency.Libraries.AndroidTest.TEST_CORE)
+
+    // Coroutines
+    implementation(Dependency.Libraries.COROUTINES.COROUTINES_KOTLINX)
+    implementation(Dependency.Libraries.COROUTINES.COROUTINES_VIEWMODEL)
+
+    // Kakao SDK
+    implementation(Dependency.Libraries.KAKAO.KAKAO_SDK)
+
+    // Hilt
+    implementation(Dependency.Libraries.HLIT.HLIT)
+    kapt(Dependency.Libraries.HLIT.HLIT_COMPILER)
+
+    // DataStore
+    implementation(Dependency.Libraries.DATASTORE.DATASTORE_PREFERENCES)
+    implementation(Dependency.Libraries.DATASTORE.DATASTORE_PREFERENCES_CORE)
 }
