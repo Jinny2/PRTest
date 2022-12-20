@@ -20,6 +20,7 @@ object Dependency {
             const val CORE = "androidx.core:core-ktx:1.7.0"
             const val NAVIGATION_FRGMENT = "androidx.navigation:navigation-fragment-ktx:2.5.1"
             const val NAVIGATION_UI = "androidx.navigation:navigation-ui-ktx:2.5.1"
+            const val LIVE_DATA = "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
         }
 
         object HLIT { // HLIT
